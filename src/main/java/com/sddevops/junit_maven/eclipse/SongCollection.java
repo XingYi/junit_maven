@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SongCollection {
@@ -104,8 +105,12 @@ public class SongCollection {
 			}	
 			
 			return song;
+	    } catch (JSONException e) {
+	    	System.out.println("Malformed JSON received: " + e.toString());
+	        return null;
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace(); //Note: This will cause error for Jenkin pipeline to build success
+			System.out.println("Caught general exception: " + e.toString());
 			return null;
 		}
 	}

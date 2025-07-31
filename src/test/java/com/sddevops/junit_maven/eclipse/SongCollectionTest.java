@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class SongCollectionTest {
@@ -59,7 +58,7 @@ class SongCollectionTest {
 	@Test
 	void testGetSongs() {
 		List<Song> testSc = sc.getSongs();
-		assertEquals(testSc.size(), SONG_COLLECTION_SIZE);
+		assertEquals(SONG_COLLECTION_SIZE, testSc.size());
 	}
 
 	/**
@@ -90,10 +89,10 @@ class SongCollectionTest {
 	@Test
 	void testSortSongsByTitle() {
 		List<Song> sortedSongList = sc.sortSongsByTitle();
-		assertEquals(sortedSongList.get(0).getTitle(), "MONTERO");
-		assertEquals(sortedSongList.get(1).getTitle(), "Peaches");
-		assertEquals(sortedSongList.get(2).getTitle(), "bad guy");
-		assertEquals(sortedSongList.get(3).getTitle(), "good 4 u");
+		assertEquals("MONTERO", sortedSongList.get(0).getTitle());
+		assertEquals("Peaches", sortedSongList.get(1).getTitle());
+		assertEquals("bad guy", sortedSongList.get(2).getTitle());
+		assertEquals("good 4 u", sortedSongList.get(3).getTitle());
 
 	}
 
@@ -104,10 +103,10 @@ class SongCollectionTest {
 	@Test
 	void testSortSongsBySongLength() {
 		List<Song> sortedSongByLengthList = sc.sortSongsBySongLength();
-		assertEquals(sortedSongByLengthList.get(0).getSongLength(), 3.59);
-		assertEquals(sortedSongByLengthList.get(1).getSongLength(), 3.18);
-		assertEquals(sortedSongByLengthList.get(2).getSongLength(), 3.14);
-		assertEquals(sortedSongByLengthList.get(3).getSongLength(), 2.3);
+		assertEquals(3.59, sortedSongByLengthList.get(0).getSongLength());
+		assertEquals(3.18, sortedSongByLengthList.get(1).getSongLength());
+		assertEquals(3.14, sortedSongByLengthList.get(2).getSongLength());
+		assertEquals(2.3, sortedSongByLengthList.get(3).getSongLength());
 
 	}
 
@@ -118,7 +117,7 @@ class SongCollectionTest {
 	@Test
 	void testFindSongsById() {
 		Song song = sc.findSongsById("004");
-		assertEquals(song.getArtiste(), "billie eilish");
+		assertEquals("billie eilish", song.getArtiste());
 		assertNull(sc.findSongsById("doesnt exist"));
 
 	}
@@ -130,7 +129,7 @@ class SongCollectionTest {
 	@Test
 	void testFindSongByTitle() {
 		Song song = sc.findSongByTitle("MONTERO");
-		assertEquals(song.getArtiste(), "Lil Nas");
+		assertEquals("Lil Nas", song.getArtiste());
 		assertNull(sc.findSongByTitle("doesnt exist"));
 
 	}
